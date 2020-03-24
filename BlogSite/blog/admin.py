@@ -12,3 +12,4 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fileds = {'slug': ('title',)}
     raw_id_fields = ('author',)
     date_hierarchy = 'publish'
+    ordering
