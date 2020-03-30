@@ -1,15 +1,20 @@
 {
-  "name": "workshoppers",
+  "name": "qrgen",
   "version": "1.0.0",
-  "description": "A central learning place for the workshops",
+  "description": "This App creates QR Codes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "envs",
+  "keywords": [
+    "QR",
+    "Codes",
+    "NPM",
+    "Node"
+  ],
+  "author": "eNvS",
   "license": "MIT",
   "dependencies": {
-    "javascripting": "^2.7.3",
     "qr-image": "^3.2.0"
   }
 }
