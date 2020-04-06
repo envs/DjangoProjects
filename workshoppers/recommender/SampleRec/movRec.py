@@ -28,6 +28,7 @@ recommendation = recommendation.join(Average_ratings['Total Ratings'])
 # Let's test the recommendation system. Let's filter all movies with correlation value to 
 # Toy Story (1995), and with at least 100 ratings
 recc = recommendation[recommendation['Total Ratings']>100].sort_values('Correlation', ascending=False).reset_index()
+
 # Let's also merge the movies dataset for verifying the recommendations
 recc = recc.merge(movie_titles_genre, on='title', how='left')
 print(recc.head(10))
