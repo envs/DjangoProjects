@@ -10,6 +10,7 @@ data = data.merge(movie_titles_genre, on='movieId', how='left')
 
 # Average rating for each & every movie
 Average_ratings = pd.DataFrame(data.groupby('title')['rating'].mean())
+
 # Total ratings for a movie
 Average_ratings['Total Ratings'] = pd.DataFrame(data.groupby('title')['rating'].count())
 #print(Average_ratings.head(10))
