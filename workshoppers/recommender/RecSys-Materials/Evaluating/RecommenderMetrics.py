@@ -5,6 +5,8 @@ from collections import defaultdict
 
 class RecommenderMetrics:
 
+    # Various set of Recommender System metrics' Algorithms
+
     def MAE(predictions):
         return accuracy.mae(predictions, verbose=False)
 
