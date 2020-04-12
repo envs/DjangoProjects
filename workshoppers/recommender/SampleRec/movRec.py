@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-#data = pd.read_csv('/Users/dinance/Downloads/EE/OpenVINO/ml-25m/ratings.csv')
+# data = pd.read_csv('/Users/dinance/Downloads/EE/OpenVINO/ml-25m/ratings.csv')
 data = pd.read_csv('/Users/dinance/Desktop/Bots/PyMicroservice/DjangoProjects/workshoppers/recommender/ml-latest-small/ratings.csv')
 
 movie_titles_genre = pd.read_csv("/Users/dinance/Desktop/Bots/PyMicroservice/DjangoProjects/workshoppers/recommender/ml-latest-small/movies.csv")
