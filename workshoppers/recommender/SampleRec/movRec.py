@@ -21,7 +21,7 @@ movie_user = data.pivot_table(index='userId', columns='title', values='rating')
 # Let's choose a movie & see its correlation value (pairwise correlation) with other movies
 correlations = movie_user.corrwith(movie_user['Toy Story (1995)'])
 
-# Now, let's remove all the empty values & merge the total ratings to the correlation table
+# Now, let's remove all the empty values and merge the total ratings to the correlation table
 recommendation = pd.DataFrame(correlations, columns=['Correlation'])
 recommendation.dropna(inplace=True)
 recommendation = recommendation.join(Average_ratings['Total Ratings'])
