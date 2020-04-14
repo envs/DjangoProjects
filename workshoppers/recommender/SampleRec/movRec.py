@@ -18,7 +18,7 @@ Average_ratings['Total Ratings'] = pd.DataFrame(data.groupby('title')['rating'].
 # Calculating the Correlation
 movie_user = data.pivot_table(index='userId', columns='title', values='rating')
 
-# Let's choose a movie & see its correlation value (pairwise correlation) with other movies
+# Let's choose a movie and see its correlation value (pairwise correlation) with other movies
 correlations = movie_user.corrwith(movie_user['Toy Story (1995)'])
 
 # Now, let's remove all the empty values and merge the total ratings to the correlation table
