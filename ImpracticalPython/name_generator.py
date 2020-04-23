@@ -39,7 +39,7 @@ def main():
         last_name = random.choice(last)
 
         print("\n\n")
-        # Trick IDLE by using "fatal error" setting to print name in red.
+        # Trick IDLE by using "fatal error" setting to print name in red
         print("{} {}".format(first_name, last_name), file=sys.stderr)
         print("\n\n")
 
@@ -53,4 +53,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
