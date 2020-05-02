@@ -18,8 +18,6 @@ def clean_text(text):
     text = [ps.stem(word) for word in tokens if word not in stopwords]
     return text
 
-data['body_text_nostop'] = data['body_text'].apply(lambda x : clean_text(x.lower()))
-
 # Apply CountVectorizer
 count_vect = CountVectorizer(analyzer=clean_text)
 X_counts = count_vect.fit_transform(data['body_text'])
