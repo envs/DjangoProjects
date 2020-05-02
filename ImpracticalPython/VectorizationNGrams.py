@@ -23,7 +23,7 @@ data['cleaned_text'] = data['body_text'].apply(lambda x : clean_text(x))
 print(data.head())
 
 
-# Apply CountVectorizer
+# Apply CountVectorizer (w/N-Gram)
 ngram_vect = CountVectorizer(ngram_range=(2,2))
 X_counts = ngram_vect.fit_transform(data['cleaned_text'])
 print(X_counts.shape)
