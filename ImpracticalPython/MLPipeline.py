@@ -9,6 +9,7 @@ import string
 import re
 import nltk
 
+ps = nltk.PorterStemmer()
 pd.set_option('display.max_colwidth', 100)
 
 data = pd.read_csv("SMSSpamCollection.tsv", sep='\t', header=None)
