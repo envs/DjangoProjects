@@ -30,7 +30,7 @@ plt.legend(loc='upper right')
 plt.show()
 
 
-# Power Transformation
+# Power Transformation with different options
 for i in [1,2,3,4,5]:
     plt.hist((data['punct%'])**(1/i), bins=40)
     plt.hist("Transformation: 1/{}".format(str(i)))
