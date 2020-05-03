@@ -28,3 +28,10 @@ plt.hist(data[data['label'] == 'spam']['punct%'], bins=bins, alpha=0.5, normed=T
 plt.hist(data[data['label'] == 'ham']['punct%'], bins=bins, alpha=0.5, normed=True, label='ham')
 plt.legend(loc='upper right')
 plt.show()
+
+
+# Power Transformation
+for i in [1,2,3,4,5]:
+    plt.hist((data['punct%'])**(1/i), bins=40)
+    plt.hist("Transformation: 1/{}".format(str(i)))
+    plt.show()
