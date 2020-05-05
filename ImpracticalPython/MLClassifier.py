@@ -63,6 +63,14 @@ print('Precision: {} / Recall: {} / Accuracy: {}'.format(round(precision, 3), ro
 def train_RF():
     rf = RandomForestClassifier(n_estimators=n_est, max_depth=depth, n_jobs=-1)
     rf_model = rf.fit(X_train, y_train)
+    y_pred = rf_model.predict(X_test)
+    precision, recall, fscore, support = score(y_test, y_pred, pos_label='spam', average='binary')
+    print('Est: {} / Depth: {} ----- Precision: {} / Recall: {} / Accuracy: {}'.format(
+        n_est, depth, 
+        round(precision, 3), 
+        round(recall, 3), 
+        round((y_pred==y_test).sum() / len(y_pred), 3)
+    ))
 
 for n_est in [10, 50, 100]:
     for depth in [10, 20, 30, None]:
