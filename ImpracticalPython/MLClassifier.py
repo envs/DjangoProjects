@@ -53,3 +53,17 @@ y_pred = rf_model.predict(X_test)
 precision, recall, fscore, support = score(y_test, y_pred, pos_label='spam', average='binary')
 
 print('Precision: {} / Recall: {} / Accuracy: {}'.format(round(precision, 3), round(recall, 3), round((y_pred==y_test).sum() / len(y_pred), 3)))
+
+# Assuming the results were Precision: 1.0 (i.e. 100%), Recall: 0.552, Accuracy: 0.934; that means
+# Precision 100% - All mails in the spam folder are actually spam
+# Recall 0.552 - 55.2% of all spam that has come to your email was properly placed  in the spam folder
+# Accuracy 93.4% - 93.4% of emails that have come into your email were correctly identified as spam or ham.
+
+# Grid-Search
+def train_RF():
+    rf = RandomForestClassifier(n_estimators=n_est, max_depth=depth, n_jobs=-1)
+    rf_model = rf.fit(X_train, y_train)
+
+for n_est in [10, 50, 100]:
+    for depth in [10, 20, 30, None]:
+        train_RF(n_est, depth)
