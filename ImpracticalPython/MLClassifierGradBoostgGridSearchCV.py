@@ -2,7 +2,7 @@ import nltk
 import pandas as pd
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import precision_recall_fscore_support as score
 import string
@@ -42,22 +42,24 @@ X_count_feat.head()
 # Exploring Parameter Settings using GridSearchCV
 
 # for X_tfidf_feat
-rf = RandomForestClassifier()
+gb = GradientBoostingClassifier()
 param = {
-    'n_estimators': [10, 150, 300],
-    'max_depth': [30, 60, 90, None]
+    'n_estimators': [100, 150],
+    'max_depth': [7, 11, 15],
+    'learning_rate': [0.1]
 }
-gs = GridSearchCV(rf, param, cv=5, n_jobs=-1)
-gs_fit = gs.fit(X_tfidf_feat, data['label'])
-pd.DataFrame(gs_fit.cv_results_).sort_values('mean_test_score', ascending=False)[0:5]
+gs = GridSearchCV(gb, param, cv=5, n_jobs=-1)
+cv_fit_tfidf = gs.fit(X_tfidf_feat, data['label'])
+pd.DataFrame(cv_fit_tfidf.cv_results_).sort_values('mean_test_score', ascending=False)[0:5]
 
 # for X_count_feat
-rf = RandomForestClassifier()
+gb = GradientBoostingClassifier()
 param = {
-    'n_estimators': [10, 150, 300],
-    'max_depth': [30, 60, 90, None]
+    'n_estimators': [100, 150],
+    'max_depth': [7, 11, 15],
+    'learning_rate': [0.1]
 }
-gs = GridSearchCV(rf, param, cv=5, n_jobs=-1)
-gs_fit = gs.fit(X_count_feat, data['label'])
-pd.DataFrame(gs_fit.cv_results_).sort_values('mean_test_score', ascending=False)[0:5]
+gs = GridSearchCV(gb, param, cv=5, n_jobs=-1)
+cv_fit_count = gs.fit(X_count_feat, data['label'])
+pd.DataFrame(cv_fit_count.cv_results_).sort_values('mean_test_score', ascending=False)[0:5]
 
