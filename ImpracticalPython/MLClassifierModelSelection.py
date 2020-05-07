@@ -50,4 +50,40 @@ X_test_vect.head()
 
 
 # FINAL Evaluation of Models
-rf = RandomForestClassifier
+# For RandomForestClassifier
+rf = RandomForestClassifier(n_estimators=150, max_depth=None, n_jobs=-1)
+
+start = time.time()
+rf_model = rf.fit(X_train_vect, y_train)
+end = time.time()
+fit_time = (end - start)
+
+start = time.time()
+y_pred = rf_model.predict(X_test_vect)
+end = time.time()
+pred_time = (end - start)
+
+precision, recall, fscore, train_support = score(y_test, y_pred, pos_label='spam', average='binary')
+print('Fit time: {} / Predict time: {} ------ Precision: {} / Recall: {} / Accuracy: {}'.format(
+    round(fit_time, 3), round(pred_time, 3),
+    round(precision, 3), round(recall, 3),
+    round((y_pred==y_test).sum() / len(y_pred), 3)))
+
+# For GradientBoostingClassifier
+gb = GradientBoostingClassifier(n_estimators=150, max_depth=11)
+
+start = time.time()
+gb_model = gb.fit(X_train_vect, y_train)
+end = time.time()
+fit_time = (end - start)
+
+start = time.time()
+y_pred = gb_model.predict(X_test_vect)
+end = time.time()
+pred_time = (end - start)
+
+precision, recall, fscore, train_support = score(y_test, y_pred, pos_label='spam', average='binary')
+print('Fit time: {} / Predict time: {} ------ Precision: {} / Recall: {} / Accuracy: {}'.format(
+    round(fit_time, 3), round(pred_time, 3),
+    round(precision, 3), round(recall, 3),
+    round((y_pred==y_test).sum() / len(y_pred), 3)))
