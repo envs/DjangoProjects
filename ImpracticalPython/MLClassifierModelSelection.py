@@ -28,7 +28,7 @@ def clean_text(text):
     text = [ps.stem(word) for word in tokens if word not in stopwords]
     return text
 
-# Split into train/test set
+# Split into train/testset
 X_train, X_test, y_train, y_test = train_test_split(data[['body_text', 'body_len', 'punct%']], data['label'], test_size=0.2)
 
 # Vectorize Text using TF-IDF (NB: We separate the fit_transform into 'fit' and 'transform' step. This helps us transform the test set separately)
