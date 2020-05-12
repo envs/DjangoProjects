@@ -21,7 +21,7 @@ def count_punct(text):
 data['body_len'] = data['body_text'].apply(lambda x: len(x) - x.count(" "))
 data['punct%'] = data['body_text'].apply(lambda x : count_punct(x))
 
-# Clean up Text - "Remove Punctuation", "Tokenization" & "Remove Stopwords"
+# Clean up Text - "Remove Punctuation", "Tokenization" and "Remove Stopwords"
 def clean_text(text):
     text = "".join([word for word in text if word not in string.punctuation])
     tokens = re.split('\W+', text)
