@@ -83,7 +83,7 @@ end = time.time()
 pred_time = (end - start)
 
 precision, recall, fscore, train_support = score(y_test, y_pred, pos_label='spam', average='binary')
-print('Fit time: {} / Predict time: {} ------ Precision: {} / Recall: {} / Accuracy: {}'.format(
+print('Fit time: {} / Predict time: {} ------- Precision: {} / Recall: {} / Accuracy: {}'.format(
     round(fit_time, 3), round(pred_time, 3),
     round(precision, 3), round(recall, 3),
     round((y_pred==y_test).sum() / len(y_pred), 3)))
