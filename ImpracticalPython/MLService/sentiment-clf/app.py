@@ -39,7 +39,7 @@ class PredictSentiment(Resource):
         else:
             pred_text = 'Positive'
 
-        # round the predict proba value and set to new variable
+        # round the predict proba value & set to new variable
         confidence = round(pred_proba[0], 3)
 
         # create JSON object
