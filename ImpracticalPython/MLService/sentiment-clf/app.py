@@ -49,7 +49,7 @@ class PredictSentiment(Resource):
 
 
 # Setup the Api resource routing here
-# Route the URL to the resource
+# Route the URL to resource
 api.add_resource(PredictSentiment, '/')
 
 
