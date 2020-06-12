@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "/Users/dinance/Anaconda/anaconda3/envs/monetizeai/bin/python"
+    "python.pythonPath": "/Users/dinance/Anaconda/anaconda3/envs/monetizeai/bin/python",
+    "files.associations": {
+        "cstdio": "cpp",
+        "new": "cpp"
+    }
 }
